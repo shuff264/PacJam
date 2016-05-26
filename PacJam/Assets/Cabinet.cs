@@ -29,4 +29,8 @@ public class Cabinet : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void DestroyCabinet(){
+		Destroy (this.gameObject);
+	}
 }

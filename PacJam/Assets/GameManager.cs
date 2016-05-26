@@ -25,12 +25,13 @@ public class GameManager : MonoBehaviour {
 		cabinetDic.Add (c.cName, c);
 	}
 
-	public void PlaceObject(Vector3 tilePos){
+	public Cabinet PlaceObject(Vector3 tilePos){
 		//instatiate to from cab dic at tile pos locale
 
 		Cabinet cab = (Cabinet)Instantiate(cabinetDic["Test"], tilePos, Quaternion.identity);
 		cab.gameObject.transform.SetParent (levelsCabs.transform);
 		cab.gameObject.SetActive (true);
 
+		return cab;
 	}
 }
