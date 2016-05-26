@@ -23,4 +23,8 @@ public class Tile : MonoBehaviour {
 	void OnMouseExit(){
 		highlight.SetActive (false);
 	}
+
+	void OnMouseDown(){
+		GameManager.instance.PlaceObject (gameObject.transform.position);
+	}
 }

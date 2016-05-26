@@ -13,6 +13,9 @@ public class CabinetInitialiser : MonoBehaviour {
 		cabinetGO = (GameObject)Instantiate (cabinetPrefab);
 		cabinet = cabinetGO.GetComponent<Cabinet> ();
 		cabinet.Inititalise (5, 10, 1, 50, "Test", "Testing cabinet");
+		cabinetGO.SetActive (false);
+		cabinet.transform.SetParent (this.gameObject.transform);
+		GameManager.instance.AddCabinetToDic (cabinet);
 	
 	}
 	
