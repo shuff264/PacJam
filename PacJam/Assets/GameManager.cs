@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Running cost example
 		if(Input.GetKeyDown(KeyCode.Space)){
 			for(int i = 0; i < cabinetsInLevel.Count; i++){
 				SubtractMoney(cabinetsInLevel[i].ReturnRunningCost());
@@ -29,6 +30,13 @@ public class GameManager : MonoBehaviour {
 
 		}
 
+		//Play cost example
+		if(Input.GetKeyDown(KeyCode.Return)){
+			for(int i = 0; i < cabinetsInLevel.Count; i++){
+				AddMoney(cabinetsInLevel[i].ReturnPlayCost());
+			}
+
+		}
 	}
 
 	public void AddCabinetToDic(Cabinet c){
@@ -39,11 +47,13 @@ public class GameManager : MonoBehaviour {
 	public Cabinet PlaceObject(Vector3 tilePos){
 		//instatiate to from cab dic at tile pos locale
 
+		//TODO: Needs to be set up to do different cabs
+		//TODO: Make multiple cabs
 		Cabinet cab = (Cabinet)Instantiate(cabinetDic["Test"], tilePos, Quaternion.identity);
 		cab.gameObject.transform.SetParent (levelsCabs.transform);
 		cab.gameObject.SetActive (true);
 		cabinetsInLevel.Add(cab);
-
+		SubtractMoney(cab.ReturnBuildCost());
 
 		return cab;
 	}

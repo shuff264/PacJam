@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Cabinet : MonoBehaviour {
 
-	int playCost;
-	int runningCost;
-	int breakRate;
-	int buildCost;
-	string cName;
-	string description;
+	public int playCost;
+	public int runningCost;
+	public int breakRate;
+	public int buildCost;
+	public string cName;
+	public string description;
 
 	public void Inititalise (int _playCost, int _runningCost, int _breakRate, int _buildCost, string _cName, string _description) { //TODO Extend to have sprite
 
@@ -27,11 +27,12 @@ public class Cabinet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	public void DestroyCabinet(){
 		GameManager.instance.cabinetsInLevel.Remove(this);
+		GameManager.instance.AddMoney(ReturnBuildCost() / 5);
 		Destroy (this.gameObject);
 	}
 
