@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(playerMoney);
-
 		if(Input.GetKeyDown(KeyCode.Space)){
 			for(int i = 0; i < cabinetsInLevel.Count; i++){
 				SubtractMoney(cabinetsInLevel[i].ReturnRunningCost());
@@ -34,8 +32,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void AddCabinetToDic(Cabinet c){
-		c.gameObject.name = c.cName;
-		cabinetDic.Add (c.cName, c);
+		c.gameObject.name = c.ReturnName();
+		cabinetDic.Add (c.ReturnName(), c);
 	}
 
 	public Cabinet PlaceObject(Vector3 tilePos){

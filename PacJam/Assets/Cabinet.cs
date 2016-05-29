@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Cabinet : MonoBehaviour {
 
-	public int playCost;
-	public int runningCost;
-	public int breakRate;
-	public int buildCost;
-	public string cName;
-	public string description;
+	int playCost;
+	int runningCost;
+	int breakRate;
+	int buildCost;
+	string cName;
+	string description;
 
 	public void Inititalise (int _playCost, int _runningCost, int _breakRate, int _buildCost, string _cName, string _description) { //TODO Extend to have sprite
 
@@ -35,7 +35,29 @@ public class Cabinet : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 
+	public int ReturnPlayCost(){
+		return playCost;
+	}
+
 	public int ReturnRunningCost(){
 		return runningCost;
 	}
+
+	public int ReturnBreakRate(){
+		return breakRate;
+	}
+
+	public int ReturnBuildCost(){
+		return buildCost;
+	}
+
+	public string ReturnName(){
+		return cName;
+	}
+
+	public string ReturnDescription(){
+		return description;
+	}
+
+
 }
